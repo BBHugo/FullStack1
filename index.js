@@ -21,6 +21,8 @@ app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`)
 })
 
+/* Hardcoded JSON to be retrieved w/ proper request */
+
 let notes = [
     {
       id: 1,
@@ -41,13 +43,16 @@ let notes = [
       important: true
     }
   ]
+
+/* Below block is the method used when not using Express */
+
 //   const app = http.createServer((request, response) => {
 //     response.writeHead(200, { 'Content-Type': 'application/json' })
 //     response.end(JSON.stringify(notes))
 //   })
 
-/* ****** Adding Express ***** */
 
+/* Original starter code block */
 
 // const app = http.createServer((request, response) => {
 //   response.writeHead(200, { 'Content-Type': 'text/plain' })
