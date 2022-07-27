@@ -21,6 +21,18 @@ app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`)
 })
 
+// The below is to get RESTful requests
+app.get('/api/notes/:id', (request, response) => {
+    const id = Number(request.params.id) /* We were initially getting an error here since we're looking for id to compare to a number not a string. */
+    const note = notes.find(note => note.id === id)
+    
+    if (note) {
+        response.json(note)
+      } else {
+        response.status(404).end()
+      }
+  })
+
 /* Hardcoded JSON to be retrieved w/ proper request */
 
 let notes = [
